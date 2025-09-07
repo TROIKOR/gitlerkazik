@@ -314,11 +314,11 @@ function initControls(){
       alert('Сброс можно делать только раз в 10 секунд. Подождите ' + rem + 's.');
       return;
     }
-    if(confirm('Сбросить баланс до 10 NiceCoin? (Можно сбросить только раз в 10 секунд)')){
+    if(confirm('Сбросить баланс до 10 HitlerCoin? (Можно сбросить только раз в 10 секунд)')){
       state.balance = 10;
       saveBalance();
       setResetNow();
-      alert('Баланс сброшен до 10 NiceCoin.');
+      alert('Баланс сброшен до 10 HitlerCoin.');
     }
   });
 }
@@ -472,7 +472,7 @@ function spinRoulette(wheel, arrow, bet){
       const win = bet * landed;
       state.balance += win;
       saveBalance();
-      document.getElementById('spinInfo').innerHTML = `<span style="color:var(--success)">Вы выиграли ${win} NiceCoin (x${landed})</span>`;
+      document.getElementById('spinInfo').innerHTML = `<span style="color:var(--success)">Вы выиграли ${win} HitlerCoin (x${landed})</span>`;
     } else {
       document.getElementById('spinInfo').innerHTML = `<span style="color:var(--danger)">Проигрыш — выпадало x${landed}</span>`;
     }
@@ -602,7 +602,7 @@ function cashoutCrash(){
   const win = Math.floor(state.crashData.bet * mult);
   state.balance += win;
   saveBalance();
-  document.getElementById('crashInfo').innerHTML = `<span style="color:var(--success)">Вы забрали ${win} NiceCoin (x${mult.toFixed(2)})</span>`;
+  document.getElementById('crashInfo').innerHTML = `<span style="color:var(--success)">Вы забрали ${win} HitlerCoin (x${mult.toFixed(2)})</span>`;
   state.runningCrash = false;
   cancelAnimationFrame(state.crashInterval);
   state.crashData = null;
@@ -737,13 +737,13 @@ function collectMines(){
   });
   state.minesField.alive = false;
   document.getElementById('collectMines').disabled = true;
-  document.getElementById('mineMult').innerHTML = `<span style="color:var(--success)">Вы забрали ${win} NiceCoin</span>`;
+  document.getElementById('mineMult').innerHTML = `<span style="color:var(--success)">Вы забрали ${win} HitlerCoin</span>`;
 }
 
 /* ====== General helpers ====== */
 function validateBet(bet){
   if(!Number.isFinite(bet) || bet<=0){ alert('Ставка должна быть числом > 0'); return false; }
-  if(bet > state.balance){ alert('Недостаточно NiceCoin. Уменьшите ставку.'); return false; }
+  if(bet > state.balance){ alert('Недостаточно HitlerCoin. Уменьшите ставку.'); return false; }
   return true;
 }
 function shuffleArray(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
