@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Купить укроп</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0fff0;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="укроп.png" alt="Укроп">
+    <button id="buyButton">Купить</button>
+
+    <audio id="cashSound" src="касса.mp3"></audio>
+
+    <script>
+        const button = document.getElementById('buyButton');
+        const sound = document.getElementById('cashSound');
+
+        button.addEventListener('click', () => {
+            sound.currentTime = 0; // чтобы звук можно было повторно воспроизводить
+            sound.play();
+        });
+    </script>
+
+</body>
+</html>
